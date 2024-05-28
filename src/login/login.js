@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import PenroseLSystemSketch from './lback';
 import { Box, Button, TextField, Typography, Container } from '@mui/material';
+import axios from 'axios';
+
+
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -42,8 +45,27 @@ const LoginForm = () => {
     }
   };
 
+
+  
+const sendSMS = async () => {
+  const body = 'Thank you for being a part of our three handed whist community ---Team THREE HANDED WHIST ';
+    const from ='+13343397091';
+    const to =phone; 
+    if (body && from && to) {
+    try {
+      const response = await axios.get('http://localhost:5000/api/send-sms', {
+        params: { body, from, to },
+      });
+      console.log('SMS sent, SID:', response.data.sid);
+      alert('INVITATION SENT');
+    } catch (error) {
+      console.error('Error sending SMS:', error);
+    }
+  }
+};
+
   return (
-    <div>
+    <div >
       <PenroseLSystemSketch />
       <Container maxWidth="xs" sx={{marginLeft:'20px',height:'500px' }}>
         <Box
@@ -72,7 +94,7 @@ const LoginForm = () => {
                 helperText={errors.email}
               />
             </Box>
-            <Box sx={{ marginBottom: 2 }}>
+            <Box sx={{ marginBottom: 2}} >
               <TextField
                 label="Phone Number"
                 type="text"
@@ -100,6 +122,7 @@ const LoginForm = () => {
               color="primary"
               fullWidth
               sx={{ padding: '10px' }}
+              onClick={sendSMS}
             >
               Login
             </Button>

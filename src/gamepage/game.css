@@ -1,5 +1,3 @@
-/* game.css */
-
 /* Base styles for the app */
 .Ap {
     font-family: 'Times New Roman', Times, serif;
@@ -7,7 +5,14 @@
     padding: 50px;
     background-color: #121212;
     color: #f9f9f9;
-    height:580px
+    height: 622px;
+    border: 2px solid #d4af37;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+    position: relative; /* Make sure the container can contain absolutely positioned elements */
+    overflow: hidden;
+    cursor: url('./../cursor.svg'), auto; /* Set the custom cursor */
+
 }
 
 /* Styles for the selected items area */
@@ -27,6 +32,11 @@
     width: calc(25% - 20px);
     text-align: center;
     border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.selected-item:hover {
+    transform: scale(1.05);
 }
 
 /* Hiding selected items */
@@ -64,8 +74,8 @@
 .toggle-button {
     position: absolute;
     top: -40px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 48%;
+    transform: translateZ(10%);
     background-color: #d4af37;
     color: #1e1e1e;
     border: none;
@@ -73,6 +83,12 @@
     cursor: pointer;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.toggle-button:hover {
+    background-color: #bfa335;
+    transform: scale(1.05);
 }
 
 .toggle-button:focus {
@@ -103,7 +119,7 @@
     border-color: #bfa335;
 }
 
-
+/* Styles for the check button */
 .check-button {
     position: absolute;
     top: 20px;
@@ -129,40 +145,100 @@
     outline: none;
 }
 
+/* Styles for player cards */
 .player-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px; /* Adjust the gap as needed */
     margin: 20px 0;
-  }
-  
-  .player-card {
+}
+
+.player-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  .player-card p {
+    background-color: #2b2b2b;
+    padding: 10px;
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.player-card:hover {
+    transform: scale(1.05);
+}
+
+.player-card p {
     margin: 0;
     padding: 5px 0;
-  }
-  .result-box {
+    color: #d4af37;
+}
+
+/* Styles for the result box */
+.result-box {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #FFD700;
-    border: 2px solid #B8860B;
+    background-color: #ffd700;
+    border: 2px solid #b8860b;
     border-radius: 10px;
     padding: 20px;
     text-align: center;
     font-size: 1.5em;
-    color: #4B0082;
+    color: #4b0082;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 1000;
-  }
-  
-  .result-box p {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.result-box p {
     margin: 0;
-  }
+}
+
+/* Animation for fade in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animation for card appearance */
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(0.5);
+    }
+}
+
+@keyframes disappear {
+    from {
+        opacity: 1;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+.cardm {
+    position: absolute;
+    width: 100px;
+    height: 150px;
+    background-color: #2b2b2b;
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+    animation: appear 0.5s ease forwards;
+    opacity: 0; /* Initially hidden */
+}

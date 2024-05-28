@@ -48,15 +48,15 @@ const sendSMS = async () => {
 
 
   return (
-    <div className="App">
+    <div className="Appm" >
         <P5Sketch />
         <div style={{ position: 'fixed', zIndex: 3,margin:'20px' }}>
 
         <br></br>
-        <span id='dd' ref={el}  style={{borderRadius:'5px', backgroundColor: 'white' ,fontSize:'50px',padding:'20',margin:'0'}} ></span>
+        <span id='ddm' ref={el}  style={{borderRadius:'5px', backgroundColor: 'white' ,fontSize:'50px',padding:'20',margin:'0'}} ></span>
         <br></br>
         <br></br>
-        <span id='dd' ref={ll}  style={{borderRadius:'1px', backgroundColor: 'white' ,fontSize:'20px',padding:'20',margin:'40'}} ></span>
+        <span id='ddg' ref={ll}  style={{borderRadius:'1px', backgroundColor: 'white' ,fontSize:'20px',padding:'20',margin:'40'}} ></span>
         
         <br></br>
         <div>
@@ -65,10 +65,12 @@ const sendSMS = async () => {
           <Button variant="contained" color="success" style={{marginTop:'20px'}} href='/post'>
         LEARN ABOUT WHIST
         </Button>     
-        <Button variant="contained" color="success" style={{marginTop:'20px'}} href='/game'>
+        <Button variant="contained" color="success" style={{marginTop:'20px'}} href='/bet'>
 Play!!        </Button> 
 <Button variant="contained" color="success" style={{marginTop:'20px'}} onClick={sendSMS}>
 INVITE       </Button> 
+<Button variant="contained" color="success" style={{marginTop:'20px'}}  href='/login'>
+Login       </Button> 
 </ButtonGroup>
 
    </div>

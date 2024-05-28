@@ -177,6 +177,25 @@ const Game = () => {
   const [playerName, setPlayerName] = useState('');
   const [isGameFull, setIsGameFull] = useState(false);
   const [result, setResult] = useState(null);
+// JavaScript to handle mouse movement and card animation
+document.addEventListener('mousemove', (event) => {
+  const card = document.createElement('div');
+  card.className = 'cardm';
+  card.style.left = `${event.pageX - 50}px`; // Center the card on the cursor
+  card.style.top = `${event.pageY - 75}px`;
+  
+  document.querySelector('.Ap').appendChild(card);
+
+  // Trigger the disappear animation after a short delay
+  setTimeout(() => {
+      card.style.animation = 'disappear 0.5s ease forwards';
+  }, 500); // Adjust the delay as needed
+
+  // Remove the card from the DOM after the disappear animation completes
+  card.addEventListener('animationend', () => {
+      card.remove();
+  });
+});
 
   useEffect(() => {
     socket.on('update-players', (players) => {

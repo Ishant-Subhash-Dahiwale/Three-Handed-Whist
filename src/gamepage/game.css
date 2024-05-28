@@ -1,0 +1,168 @@
+/* game.css */
+
+/* Base styles for the app */
+.Ap {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    padding: 50px;
+    background-color: #121212;
+    color: #f9f9f9;
+    height:580px
+}
+
+/* Styles for the selected items area */
+.above-pane {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Styles for each selected item */
+.selected-item {
+    background-color: #2b2b2b;
+    padding: 20px;
+    border: 2px solid #d4af37;
+    width: calc(25% - 20px);
+    text-align: center;
+    border-radius: 8px;
+}
+
+/* Hiding selected items */
+.selected-item.hidden {
+    display: none;
+}
+
+/* Styles for the sliding pane container */
+.pane-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(100%);
+    z-index: 1000;
+}
+
+/* When the pane is open */
+.pane-container.open {
+    transform: translateY(0);
+}
+
+/* Styles for the pane */
+.pane {
+    background-color: #2b2b2b;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-top: 2px solid #d4af37;
+    max-height: 80vh; /* Adjust the height as needed */
+    overflow-y: auto; /* Enable vertical scrollbar */
+}
+
+/* Styles for the toggle button */
+.toggle-button {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #d4af37;
+    color: #1e1e1e;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-button:focus {
+    outline: none;
+}
+
+/* Styles for the items container */
+.items-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Styles for each item */
+.item {
+    background-color: #1e1e1e;
+    padding: 10px;
+    border: 2px solid #d4af37;
+    cursor: pointer;
+    flex: 1 1 calc(25% - 20px);
+    text-align: center;
+    border-radius: 8px;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.item:hover {
+    transform: scale(1.05);
+    border-color: #bfa335;
+}
+
+
+.check-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #d4af37; /* Royal gold color */
+    color: #1e1e1e; /* Dark text color for contrast */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.check-button:hover {
+    background-color: #bfa335; /* Slightly darker shade of gold for hover effect */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+.check-button:focus {
+    outline: none;
+}
+
+.player-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Adjust the gap as needed */
+    margin: 20px 0;
+  }
+  
+  .player-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .player-card p {
+    margin: 0;
+    padding: 5px 0;
+  }
+  .result-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFD700;
+    border: 2px solid #B8860B;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5em;
+    color: #4B0082;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  .result-box p {
+    margin: 0;
+  }
